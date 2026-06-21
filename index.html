@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="background-gradient"></div>
+
+  <main class="app">
+    <header class="header">
+      <div class="logo">
+        <span class="logo-icon" aria-hidden="true">☀</span>
+        <h1>Weather</h1>
+      </div>
+      <button type="button" id="unit-toggle" class="unit-toggle" aria-label="Toggle temperature unit">
+        °C
+      </button>
+    </header>
+
+    <section class="search-section">
+      <form id="search-form" class="search-form" autocomplete="off">
+        <div class="search-input-wrap">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+          <input
+            type="text"
+            id="city-input"
+            placeholder="Search city..."
+            aria-label="City name"
+            required
+          >
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+        <button type="button" id="location-btn" class="btn btn-secondary" aria-label="Use my location">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+          </svg>
+        </button>
+      </form>
+      <ul id="suggestions" class="suggestions" role="listbox" hidden></ul>
+    </section>
+
+    <div id="status" class="status" role="status" aria-live="polite"></div>
+
+    <section id="weather-panel" class="weather-panel" hidden>
+      <div class="current-weather card">
+        <div class="current-header">
+          <div>
+            <h2 id="location-name" class="location-name"></h2>
+            <p id="location-detail" class="location-detail"></p>
+            <p id="local-time" class="local-time"></p>
+          </div>
+          <div id="weather-icon" class="weather-icon" aria-hidden="true"></div>
+        </div>
+
+        <div class="current-temp-row">
+          <span id="current-temp" class="current-temp"></span>
+          <div class="current-meta">
+            <p id="weather-desc" class="weather-desc"></p>
+            <p id="feels-like" class="feels-like"></p>
+          </div>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat">
+            <span class="stat-label">Humidity</span>
+            <span id="humidity" class="stat-value"></span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Wind</span>
+            <span id="wind" class="stat-value"></span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">High / Low</span>
+            <span id="high-low" class="stat-value"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="forecast card">
+        <h3 class="forecast-title">7-Day Forecast</h3>
+        <div id="forecast-list" class="forecast-list"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    Weather data by
+    <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
